@@ -35,11 +35,6 @@ keys.addEventListener('click', e => {
         {
             display.value = Math.sqrt(eval(display.value));
         }
-        if (action == 'power')
-        {
-            let a = (display.value).slice(-1)
-            // display.value = a;
-        }
         if (action === 'back') {
             backSpace();
         }
@@ -66,57 +61,65 @@ function backSpace(e){
 function evaluation(e){
     var exp = display.value;
     if(exp){
-        display.value = eval(exp);
-        // var operators = {
-        //     '&': function(a) { return sqrt(a); },
-        //     '^': function(a, b) { return pow(a,b); },
-        //     '+': function(a, b) { return a + b; },
-        //     '-': function(a, b) { return a - b; },
-        //     '*': function(a, b) { return a * b; },
-        //     '/': function(a, b) { return a / b; },
-        // };
-        // var precedence = [
-        //     ['^', '&']
-        //     ['*', '/'],
-        //     ['+', '-']
-        // ]
+        var operators = {
+            power: function(a, b) { return Math.pow(a,b); },
+            add: function(a, b) { return a + b; },
+            sub: function(a, b) { return a - b; },
+            mult: function(a, b) { return a * b; },
+            divide: function(a, b) { 
+                if(b != 0){
+                    return a / b;
+                } else {
+                    display.value = "Division by zero";
+                    console.log("Division by zero");}  },
+        };
+        var precedence = ['^', '*', '/', '+', '-'];
         // // process until we are done
-        // while (exp.length > 1) {
-        //     // find the first operator at the lowest level
-        //     var reduceAt = 0;
-        //     var found = false;
-        //     for (var i = 0; i < precedence.length; i++) {
-        //         for (var j = 1; j < exp.length - 1; j++) {
-        //             if ($.inArray(exp[j], precedence[i]) >= 0) {
-        //                 reduceAt = j;
-        //                 found = true;
-        //                 break;
-        //             }
-        //         }
-        //         if (found) break;
-        //     }
-        
-        //     // if we didn't find one, bail
-        //     if (!found) return;
-        
-        //     // otherwise, reduce that operator
-        //     var newInput = [];
-        //     var f = operators[exp[reduceAt]];
-        
-        //     for (var i = 0; i < reduceAt - 1; i++)
-        //         newInput.push(exp[i]);
-        
-        //     newInput.push("" + f(
-        //         parseFloat(exp[reduceAt - 1]),
-        //         parseFloat(exp[reduceAt + 1])
-        //     ));
-        
-        //     for (var i = reduceAt + 2; i < exp.length; i++)
-        //         newInput.push(exp[i]);
-        
-        //     exp = newInput;
-        // }
+        for (var j = 0; j < precedence.length; j++) {
+            var found = false;
+            for (var i = 0; i < exp.length; i++) {
+                if (precedence[j] == exp[i]) {
+                    if (exp[i] == '^'){
+                        let [a, b, c] = [parseInt(exp[i-1]), parseInt(exp[i+1]), exp[i]];
+                        let ans = operators.power(a, b);
+                        exp = exp.split('' + a + '' + c +'' + b).join('' + ans);
+                        break;
+                    }
+                }
 
+                    // else if (exp[i] == '^'){
+        //                 let [a, b, c] = [parseInt(exp[i-1]), parseInt(exp[i+1]), exp[i]];
+        //                 let ans = operators.power(a, b);
+        //                 exp = exp.split('' + a + '' + c +'' + b).join('' + ans);
+        //                 // break;
+        //             }
+        //             else if (exp[i] == '-'){
+        //                 let [a, b, c] = [parseInt(exp[i-1]), parseInt(exp[i+1]), exp[i]];
+        //                 let ans = operators.sub(a, b);
+        //                 exp = exp.split('' + a + '' + c +'' + b).join('' + ans);
+        //                 // break;
+        //             }
+        //             else if (exp[i] == '*'){
+        //                 let [a, b, c] = [parseInt(exp[i-1]), parseInt(exp[i+1]), exp[i]];
+        //                 let ans = operators.mult(a, b);
+        //                 exp = exp.split('' + a + '' + c +'' + b).join('' + ans);
+        //                 // break;
+        //             }
+        //             else if (exp[i] == '/'){
+        //                 let [a, b, c] = [parseInt(exp[i-1]), parseInt(exp[i+1]), exp[i]];
+        //                 let ans = operators.divide(a, b);
+        //                 exp = exp.split('' + a + '' + c +'' + b).join('' + ans);
+        //                 // break;
+        //             }
+        //             else {
+        //                 console.log("Invalid Input");
+        //             }
+                    
+        //      
+        // }
+            }
+        }
     }
+    display.value = eval(exp);
 }
 
