@@ -42,8 +42,8 @@ const state = history.state;
 
 // Display the BOM Information on the innerHTML of the elements
 
-document.querySelector("#href").innerHTML = href;
-document.querySelector("#protocol").innerHTML = protocol;
+document.getElementById("href").innerHTML = href;
+document.getElementById("protocol").innerHTML = protocol;
 document.getElementById("host").innerHTML = host;
 document.getElementById("port").innerHTML = port;
 document.getElementById("hostname").innerHTML = hostname;

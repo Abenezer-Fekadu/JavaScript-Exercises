@@ -120,6 +120,11 @@ function evaluation(e){
             }
         }
     }
-    display.value = eval(exp);
+    if (eval(exp) === Infinity){
+        display.value = "Division by zero"
+    }
+    else{
+        display.value = eval(exp);
+    }
 }
 
