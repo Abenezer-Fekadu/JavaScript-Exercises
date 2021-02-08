@@ -44,7 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // createindex: 1) field name 2) keypath 3) options
         objectStore.createIndex('taskname', 'taskname', { unique: false });
-
+        objectStore.createIndex('taskname', 'taskname', { unique: false });
+        objectStore.createIndex('date', 'date', { unique: false });
         console.log('Database ready and fields created!');
     }
 
@@ -61,16 +62,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // create a new object with the form info
-        let newTask = {
-            taskname: taskInput.value,
-        }
+
+        // let newTask = {
+        //     taskname: taskInput.value,
+        // }
 
         // Insert the object into the database 
         let transaction = DB.transaction(['tasks'], 'readwrite');
         let objectStore = transaction.objectStore('tasks');
-
-        let request = objectStore.add(newTask);
-
+        
+        let request = objectStore.put(
+            {
+            taskname: taskInput.value,
+            date: new Date()
+        }
+        );
         // on success
         request.onsuccess = () => {
             form.reset();
@@ -112,15 +118,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Create new element for the link 
                 const link = document.createElement('a');
                 // Add class and the x marker for a 
-                link.className = 'delete-item secondary-content';
-                link.innerHTML = `
-                 <i class="fa fa-remove"></i>
-                &nbsp;
-                <a href="/Lesson 04 [Lab 06]/Finished/edit.html?id=${cursor.value.id}"><i class="fa fa-edit"></i> </a>
+                link.className = 'delete-item';
+                link.innerHTML = `<a class="secondary-content"><i class="fa fa-remove"></i></a>&nbsp
+                <a class="secondary-content" href="edit.html?id=${cursor.value.id}"><i class="fa fa-edit"></i></a>
                 `;
+                // Create date add 
+                const date = document.createElement('span')
+                date.className = 'date-text';
+                date.innerHTML = cursor.value.date;
+                date.style.marginLeft = "10em";
+                
+                li.appendChild(date);
                 // Append link to li
                 li.appendChild(link);
                 // Append to UL 
+                
                 taskList.appendChild(li);
                 cursor.continue();
             }
