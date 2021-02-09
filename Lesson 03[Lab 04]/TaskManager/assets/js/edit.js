@@ -71,7 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
         2. Use the id on put method of index db
         
         */
-
+        var transaction = DB.transaction(['tasks'], 'readwrite');
+        var objectStore = transaction.objectStore('tasks');
+        objectStore.put(
+        {
+            id:id, taskname: taskInput.value, date: new Date()
+        })
         history.back();
     }
 
