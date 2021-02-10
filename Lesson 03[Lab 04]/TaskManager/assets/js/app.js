@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // createindex: 1) field name 2) keypath 3) options
         objectStore.createIndex('taskname', 'taskname', { unique: false });
-        objectStore.createIndex('taskname', 'taskname', { unique: false });
         objectStore.createIndex('date', 'date', { unique: false });
         console.log('Database ready and fields created!');
     }
@@ -166,6 +165,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     }
+
+    //   Filter Task 
+filter.addEventListener('keyup', filterTasks);
+    // Search 
+    function filterTasks(e) {
+        let userdata = e.target.value;
+        let coll = taskList.querySelectorAll(".collection-item");
+        // console.log(userdata);
+        for(i = 0; i < coll.length; i++){
+            // coll[i].style.color = "black"
+            if (coll[i].firstChild.textContent.indexOf(userdata) == -1){
+                coll[i].style.display = "none";
+            }else if(coll[i].firstChild.textContent.indexOf(userdata) == 0){
+                coll[i].style.display = "block";
+            }
+        }
+    
+    }
+    
 
     //clear button event listener   
     clearBtn.addEventListener('click', clearAllTasks);
