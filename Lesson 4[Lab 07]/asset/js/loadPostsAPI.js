@@ -2,9 +2,9 @@
 const postDiv3 = document.getElementById('thePosts');
 const filter = document.getElementById('filter');
 
-// const assend = document.querySelector('#assend');
+const assend = document.querySelector('#assend');
 
-// const desend = document.querySelector('#desend');
+const desend = document.querySelector('#desend');
 
 const loader = document.querySelector('.load');
 
@@ -127,3 +127,59 @@ filter.addEventListener('keyup', filterTasks);
         }
     
     }
+    
+// Even tistner for Assending
+assend.addEventListener('click', assending);
+
+// Event Listner For Descending
+desend.addEventListener('click', desending);
+
+// Sorting Order
+function order(e){
+    let div = document.querySelectorAll(".collection-item");
+    listDate = new Array();
+    for (i = 0; i < div.length; i++) {
+        let ld = new Date(div[i].children[0].textContent);
+        listDate.push(ld.getTime());
+    }
+    let newlist = listDate.sort((a, b) => a - b);
+    // console.log(newlist);
+    console.log(listDate)
+    return newlist;
+}
+
+function assending(e){
+    let orderList = order();
+    let doc = document.querySelectorAll(".collection-item");
+    for (i = 0; i < orderList.length; i++) {
+        for (j = 0; j < doc.length; j++){
+            let d = doc[j].children[0].textContent;
+            let nd = new Date(d);
+            if (orderList[i] === nd.getTime()){
+                let a = doc[j].innerHTML;
+                doc[j].innerHTML = doc[i].innerHTML;
+                doc[i].innerHTML = a;
+            }
+        }   
+    }
+}
+function desending(e){
+    let orderdList = order().reverse();
+    let doc = document.querySelectorAll(".collection-item");
+    console.log(doc)
+    console.log(doc[1].children[0])
+    for (k = 0; k < orderdList.length; k++) {
+        for (j = 0; j < doc.length; j++){
+            let d = doc[j].children[0].textContent;
+            let nd = new Date(d);
+            if (orderdList[k] === nd.getTime()){
+                let a = doc[j].innerHTML;
+                doc[j].innerHTML = doc[k].innerHTML;
+                doc[k].innerHTML = a;
+
+                console.log(doc[1].children[1])
+                console.log(doc)
+            }
+        }
+    }   
+}
