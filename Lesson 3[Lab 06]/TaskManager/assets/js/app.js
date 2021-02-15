@@ -177,7 +177,7 @@ filter.addEventListener('keyup', filterTasks);
             // coll[i].style.color = "black"
             if (coll[i].firstChild.textContent.indexOf(userdata) == -1){
                 coll[i].style.display = "none";
-            }else if(coll[i].firstChild.textContent.indexOf(userdata) == 0){
+            }else {
                 coll[i].style.display = "block";
             }
         }
