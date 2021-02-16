@@ -8,7 +8,6 @@ const desend = document.querySelector('#desend');
 
 const loader = document.querySelector('.load');
 
-loader.classList.add('active')
 //Load Every thing ....
 document.addEventListener("DOMContentLoaded", () => {
     //load_fromPlaceHolder();
@@ -64,14 +63,10 @@ function load_fromPlaceHolder() {
 }
 
 async function load_fromPlaceHolder_new() {
-
     //open the request 
     let response = await fetch('https://jsonplaceholder.typicode.com/posts');
-
     let data = await response.json();
-
     return data;
-
 }
 
 function loadDataNew() {
@@ -81,7 +76,7 @@ function loadDataNew() {
             posts.forEach(function(post) {
                 output += `
 
-    <div class="item">
+    <div class="item collection">
         <div class="image">
             <img src=" https://images.unsplash.com/photo-1499482125586-91609c0b5fd4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80">
         </div>
@@ -128,34 +123,32 @@ filter.addEventListener('keyup', filterTasks);
     
     }
     
+
 // Even tistner for Assending
 assend.addEventListener('click', assending);
-
 // Event Listner For Descending
 desend.addEventListener('click', desending);
 
 // Sorting Order
 function order(e){
-    let div = document.querySelectorAll(".collection-item");
-    listDate = new Array();
+    let div = document.querySelectorAll("#bTitle");
+    listName = new Array();
     for (i = 0; i < div.length; i++) {
-        let ld = new Date(div[i].children[0].textContent);
-        listDate.push(ld.getTime());
+        listName.push(div[i].textContent);
     }
-    let newlist = listDate.sort((a, b) => a - b);
-    // console.log(newlist);
-    console.log(listDate)
+    let newlist = listName.sort();
+    console.log(newlist)
     return newlist;
+    
 }
 
 function assending(e){
     let orderList = order();
-    let doc = document.querySelectorAll(".collection-item");
+    let doc = document.querySelectorAll(".collection");
     for (i = 0; i < orderList.length; i++) {
         for (j = 0; j < doc.length; j++){
-            let d = doc[j].children[0].textContent;
-            let nd = new Date(d);
-            if (orderList[i] === nd.getTime()){
+            let d = doc[j].children[1].children[0].textContent;
+            if (orderList[i] === d){
                 let a = doc[j].innerHTML;
                 doc[j].innerHTML = doc[i].innerHTML;
                 doc[i].innerHTML = a;
@@ -165,20 +158,19 @@ function assending(e){
 }
 function desending(e){
     let orderdList = order().reverse();
-    let doc = document.querySelectorAll(".collection-item");
-    console.log(doc)
-    console.log(doc[1].children[0])
+    let doc = document.querySelectorAll(".collection");
+    // console.log(doc)
+    // console.log(doc[1].children[1].children[0])
     for (k = 0; k < orderdList.length; k++) {
         for (j = 0; j < doc.length; j++){
-            let d = doc[j].children[0].textContent;
-            let nd = new Date(d);
-            if (orderdList[k] === nd.getTime()){
+            let d = doc[j].children[1].children[0].textContent;
+            if (orderdList[k] === d){
                 let a = doc[j].innerHTML;
                 doc[j].innerHTML = doc[k].innerHTML;
                 doc[k].innerHTML = a;
 
-                console.log(doc[1].children[1])
-                console.log(doc)
+                // console.log(doc[1].children[1])
+                // console.log(doc)
             }
         }
     }   

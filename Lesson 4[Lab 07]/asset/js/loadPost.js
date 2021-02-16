@@ -1,6 +1,7 @@
 // UI Vars 
 const postDiv = document.getElementById('myPost');
 
+const loader = document.querySelector('.load');
 
 
 //load a single customer function 
@@ -10,7 +11,7 @@ function loadPost() {
     const xhr = new XMLHttpRequest();
 
     // Open the connection [URL can be local or remote]
-    xhr.open('GET', '/Lesson 05[Lab 07]/Finished/asset/jsonData/loadPost.json', true);
+    xhr.open('GET', 'Lesson 05[Lab 07]\Finished\asset\jsonData\post.json', true);
 
     //on ready state is 4 when it reaches this method 
     xhr.onload = function() {
@@ -46,6 +47,7 @@ function loadPost() {
         </div>
         `;
 
+        loader.classList.remove('active')
             // Assign it to the DIV
             postDiv.innerHTML = output;
         }

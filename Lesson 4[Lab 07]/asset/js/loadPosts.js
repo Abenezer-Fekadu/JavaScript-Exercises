@@ -1,6 +1,7 @@
 // UI Vars 
 const postDiv2 = document.getElementById('myPosts');
 
+const loader = document.querySelector('.load');
 
 
 //load a single customer function 
@@ -52,7 +53,7 @@ function loadPosts() {
             });
 
 
-
+            loader.classList.remove('active')
             // Assign it to the DIV
             postDiv2.innerHTML = output;
         }

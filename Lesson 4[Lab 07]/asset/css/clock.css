@@ -14,24 +14,24 @@ body {
   border-radius: 50%;
   border: 16px solid #303030;
 }
-.a,
-.b {
+.clock-black,
+.clock-red {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.a {
+.clock-black {
   height: 15px;
   width: 15px;
   background: #262626;
   z-index: 2;
   border-radius: 50%;
 }
-.b {
+.clock-red {
   height: 8px;
   width: 8px;
-  background: gray;
+  background: crimson;
   z-index: 6;
   border-radius: 50%;
 }
@@ -61,7 +61,8 @@ body {
   z-index: 5;
   left: -1px;
   top: -25px;
-  background: gray;
+  background: crimson;
+  /* transform: rotate(180deg); */
 }
 .sec:after {
   position: absolute;
@@ -71,7 +72,8 @@ body {
   z-index: 5;
   left: -3px;
   top: -45px;
-  background: gray;
+  background: crimson;
+  /*  */
 }
 .min:before {
   position: absolute;
@@ -113,7 +115,7 @@ body {
   position: absolute;
   content: "";
   height: 45px;
-  width: 5px;
+  width: 6px;
   z-index: 3;
   left: -3px;
   top: -20px;
