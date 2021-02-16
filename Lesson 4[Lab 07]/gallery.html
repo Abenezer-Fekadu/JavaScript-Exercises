@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <!-- Semantic CDN -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+        integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./asset/css/style.css">
+
+</head>
+
+<body>
+    <!-- Navigation  -->
+    <div class="ui top attached tabular menu">
+        <a class="active item" href="index.html">
+            Home
+        </a>
+        <a class="item" href="api.html">
+            API
+        </a>
+        <a class="item" href="gallery.html">
+            Gallery
+        </a>
+        <a class="item" href="clock.html">
+            Clock
+        </a>
+    </div>
+    </div>
+    <div class="ui bottom attached segment">
+        <p></p>
+    </div>
+
+    <!--image slider start-->
+    <div class="slider">
+        <div class="slides">
+            <!--radio buttons start-->
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            <input type="radio" name="radio-btn" id="radio4">
+            <!--radio buttons end-->
+            <!--slide images start-->
+            <div class="slide first">
+                <img src="https://picsum.photos/200/300.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="https://picsum.photos/200/300.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="https://picsum.photos/200/300.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="https://picsum.photos/200/300.jpg" alt="">
+            </div>
+            <!--slide images end-->
+            <!--automatic navigation start-->
+            <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+                <div class="auto-btn4"></div>
+            </div>
+            <!--automatic navigation end-->
+        </div>
+        <!--manual navigation start-->
+        <div class="navigation-manual">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+            <label for="radio4" class="manual-btn"></label>
+        </div>
+        <!--manual navigation end-->
+    </div>
+
+
+    <!-- Swiper -->
+    <!-- <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img data-src="https://picsum.photos/200/300.webp" class="swiper-lazy">
+                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+            </div>
+            <div class="swiper-slide">
+                <img data-src="https://picsum.photos/200/300?grayscale" class="swiper-lazy">
+                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+            </div>
+            <div class="swiper-slide">
+                <img data-src="https://picsum.photos/200/300?grayscale" class="swiper-lazy">
+                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+            </div>
+            <div class="swiper-slide">
+                <img data-src="https://picsum.photos/200/300?grayscale" class="swiper-lazy">
+                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+            </div>
+            <div class="swiper-slide">
+                <img data-src="https://picsum.photos/200/300?grayscale" class="swiper-lazy">
+                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+            </div>
+            <div class="swiper-slide">
+                <img data-src="https://picsum.photos/200/300?grayscale" class="swiper-lazy">
+                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+            </div>
+
+        </div>
+        <div class="swiper-pagination swiper-pagination-white"></div>
+        <div class="swiper-button-next swiper-button-white"></div>
+        <div class="swiper-button-prev swiper-button-white"></div>
+    </div> -->
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+        integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
+        crossorigin="anonymous"></script>
+    <script src="./asset/js/gallery.js"></script>
+</body>
+
+</html>

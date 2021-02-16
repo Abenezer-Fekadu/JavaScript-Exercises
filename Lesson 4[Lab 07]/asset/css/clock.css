@@ -1,0 +1,123 @@
+body {
+  align-items: center;
+  justify-content: center;
+}
+.clock {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/clock.png");
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 16px solid #303030;
+}
+.a,
+.b {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.a {
+  height: 15px;
+  width: 15px;
+  background: #262626;
+  z-index: 2;
+  border-radius: 50%;
+}
+.b {
+  height: 8px;
+  width: 8px;
+  background: gray;
+  z-index: 6;
+  border-radius: 50%;
+}
+.sec {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  /* animation: sec 60s linear infinite; */
+}
+.min {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  /* animation: min 3600s linear infinite; */
+}
+.hour {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  /* animation: hour 43200s linear infinite; */
+}
+.sec:before {
+  position: absolute;
+  content: "";
+  height: 110px;
+  width: 2px;
+  z-index: 5;
+  left: -1px;
+  top: -25px;
+  background: gray;
+}
+.sec:after {
+  position: absolute;
+  content: "";
+  height: 30px;
+  width: 5px;
+  z-index: 5;
+  left: -3px;
+  top: -45px;
+  background: gray;
+}
+.min:before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 1px;
+  z-index: 4;
+  left: -3px;
+  top: -75px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 50px solid #303030;
+}
+.min:after {
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 6px;
+  z-index: 4;
+  left: -3px;
+  top: -25px;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-top: 60px solid #303030;
+}
+.hour:before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 1px;
+  z-index: 3;
+  left: -3px;
+  top: -65px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 55px solid #303030;
+}
+.hour:after {
+  position: absolute;
+  content: "";
+  height: 45px;
+  width: 5px;
+  z-index: 3;
+  left: -3px;
+  top: -20px;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-top: 20px solid #303030;
+}
