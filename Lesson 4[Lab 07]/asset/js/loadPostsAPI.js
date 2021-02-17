@@ -6,7 +6,7 @@ const assend = document.querySelector('#assend');
 
 const desend = document.querySelector('#desend');
 
-const loader = document.querySelector('.load');
+const loading = document.querySelector('.load');
 
 //Load Every thing ....
 document.addEventListener("DOMContentLoaded", () => {
@@ -50,7 +50,7 @@ function load_fromPlaceHolder() {
         `;
             });
 
-            loader.classList.remove('active')
+            loading.classList.remove('active')
             // loader.classList.remove('dimmer')
             postDiv3.innerHTML = output;
         })
@@ -98,7 +98,7 @@ function loadDataNew() {
 `;
             });
 
-            loader.classList.remove('.active');
+            loading.classList.remove('.active');
             postDiv3.innerHTML = output;
         })
         .catch(function(err) {
@@ -136,10 +136,20 @@ function order(e){
     for (i = 0; i < div.length; i++) {
         listName.push(div[i].textContent);
     }
-    let newlist = listName.sort();
-    console.log(newlist)
-    return newlist;
-    
+    var i = 0, j; 
+    while (i < listName.length) { 
+        j = i + 1; 
+        while (j < listName.length) { 
+            if (listName[j] < listName[i]) { 
+                var temp = listName[i]; 
+                listName[i] = listName[j]; 
+                listName[j] = temp; 
+            } 
+            j++; 
+        } 
+        i++; 
+    }  
+    return listName   
 }
 
 function assending(e){
@@ -159,8 +169,6 @@ function assending(e){
 function desending(e){
     let orderdList = order().reverse();
     let doc = document.querySelectorAll(".collection");
-    // console.log(doc)
-    // console.log(doc[1].children[1].children[0])
     for (k = 0; k < orderdList.length; k++) {
         for (j = 0; j < doc.length; j++){
             let d = doc[j].children[1].children[0].textContent;
@@ -168,9 +176,6 @@ function desending(e){
                 let a = doc[j].innerHTML;
                 doc[j].innerHTML = doc[k].innerHTML;
                 doc[k].innerHTML = a;
-
-                // console.log(doc[1].children[1])
-                // console.log(doc)
             }
         }
     }   

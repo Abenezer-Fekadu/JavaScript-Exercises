@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 async function load_fromPlaceHolder_new() {
     //open the request 
-    let response = await fetch('https://picsum.photos/v2/list');
+    let response = await fetch('https://picsum.photos/v2/list?page=2&limit=20');
     let data = await response.json();
     return data;
 }
