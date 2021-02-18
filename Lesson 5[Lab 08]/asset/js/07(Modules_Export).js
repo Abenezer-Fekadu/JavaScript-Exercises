@@ -1,7 +1,5 @@
 //1. Add export key work before const  
-const myVar = "Export Var By Adding Export Keyword In the Front!!";
-
-
+export const myVar = "Export Var By Adding Export Keyword In the Front!!";
 
 //export this function at last line
 function exp1() {

@@ -1,5 +1,5 @@
 //1. Import the myVar as destructuring
-
+// import myVar as distructering;
 //2. Display the Var [remove the string when you have the variable]
 simple_import.innerHTML = "myVar";
 
