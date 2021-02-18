@@ -28,9 +28,15 @@ function usingCall() {
         lastName: "Lanster",
     }
 
-    //1. Borrow fullName using call
-    //2. Pass call_demo[as ui_place] , Hi I am ,[message]
+    // //1. Borrow fullName using call
+    // const newNames = {
+    // }
+    
+    // let namef = Cerscy.firstName.call(newNames)
+    // let namel = Cerscy.lastName.call(newNames)
 
+    //2. Pass call_demo[as ui_place] , Hi I am ,[message]
+    // ui_demo.innerHTML = `Hi I am ${namel} ${namef}`;
 
 }
 
