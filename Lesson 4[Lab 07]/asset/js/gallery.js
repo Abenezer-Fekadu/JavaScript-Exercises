@@ -1,5 +1,5 @@
-const postDiv1 = document.querySelector(".swiper-wrapper")
-const loader = document.querySelector('.load');
+const postDiv = document.querySelector(".swiper-wrapper")
+const loading = document.querySelector('.load');
 
 document.addEventListener("DOMContentLoaded", () => {
     loadDataNew();
@@ -16,12 +16,13 @@ function loadDataNew() {
             let output = '';
             posts.forEach(function(post) {
                 output += `
-                <div class="swiper-slide" style="background-image: url(${post.download_url}); background-size: cover; background-repeat:no-repeat;">
+                <div class="swiper-slide" style="background-image: url(${post.download_url}); background-size: cover;">
                 </div>
 `;
             });
-            loader.classList.remove('active')
-            postDiv1.innerHTML = output;
+
+            loading.classList.remove('active')
+            postDiv.innerHTML = output;
 
             var swiper = new Swiper('.swiper-container', {
                 slidesPerView: 1,

@@ -62,17 +62,6 @@ body {
   width: 1px;
   animation: hour 43200s linear infinite;
 }
-.sec:before {
-  position: absolute;
-  content: "";
-  height: 110px;
-  width: 2px;
-  z-index: 5;
-  left: -1px;
-  top: -25px;
-  background: crimson;
-  /* transform: rotate(180deg); */
-}
 .sec:after {
   position: absolute;
   content: "";
@@ -81,6 +70,18 @@ body {
   z-index: 5;
   left: -3px;
   top: -45px;
+  background: crimson;
+
+  /* transform: rotate(180deg); */
+}
+.sec:before {
+  position: absolute;
+  content: "";
+  height: 110px;
+  width: 2px;
+  z-index: 5;
+  left: -1px;
+  top: -25px;
   background: crimson;
   /*  */
 }
