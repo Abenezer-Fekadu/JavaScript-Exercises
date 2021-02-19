@@ -99,9 +99,7 @@ function usingES5(){
     }
 
     Es5.innerHTML = `${arya.end()}`; 
-
 }
-
 function usingES6(){
     const Jon = {
         name: "Jon",
@@ -113,6 +111,5 @@ function usingES6(){
         }
     }
     Es6.innerHTML = `${Jon.end()}`;
-
 }
 

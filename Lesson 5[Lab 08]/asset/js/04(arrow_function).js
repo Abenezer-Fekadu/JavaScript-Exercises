@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     arrow_red1.innerHTML = `The Sum is :  ${arrowFun2(1,2)}`;
     arrow_red2.innerHTML = `The Sqrt is :  ${arrowFun3(4)}`;
 
-
-
 })
 
 //1. Replace the empty string with arrow function 
